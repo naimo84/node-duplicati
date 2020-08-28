@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "*": [
+                "types/*"
+            ]
+        },
+        "outDir": "./dist",
+        "target": "es5",
+        "moduleResolution": "node",
+        "allowJs": true,
+        "sourceMap": true    
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ],
+    "include": [
+        "./src/**/*", "types/index.d.ts", "types"
+    ],
+    "typeRoots": [
+        "types"
+    ],
+}

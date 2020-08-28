@@ -1,0 +1,17 @@
+{
+  "name": "node-duplicati-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc ./index.ts && node ./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-duplicati": "0.0.6"
+  },
+  "devDependencies": {
+    "typescript": "3.4.3"
+  }
+}

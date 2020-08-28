@@ -1,0 +1,136 @@
+{
+  "name": "node-duplicati",
+  "version": "0.1.0",
+  "description": "calendar events for nodejs",
+  "main": "dist/lib.js",
+  "scripts": {
+    "test": "mocha \"test/**/*_spec.js\"",
+    "release": "standard-version",
+    "release-minor": "standard-version --release-as minor",
+    "watch": "tsc -w -p ./tsconfig.json",
+    "dev": "gulp develop",
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/naimo84/node-duplicati.git"
+  },
+  "keywords": [],
+  "types": "types/index.d.ts",
+  "author": "naimo84",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "axios": "^0.19.2",
+    "axios-cookiejar-support": "^1.0.0",
+    "cloneextend": "0.0.3",
+    "crypto-js": "^3.3.0",
+    "debug": "^4.1.1",
+    "form-data": "^3.0.0",
+    "lodash": "^4.17.20",
+    "querystring": "^0.2.0",
+    "tough-cookie": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.159",
+    "@types/node": "^13.13.15",
+    "@types/tough-cookie": "^4.0.0",
+    "chai": "4.2.0",
+    "chai-like": "1.1.1",
+    "chai-things": "0.2.0",
+    "commitlint": "^8.3.5",
+    "gulp": "^4.0.2",
+    "gulp-nodemon": "^2.4.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "gulp-watch": "^5.0.1",
+    "mocha": "7.1.1",
+    "sinon": "9.0.1",
+    "standard-version": "^7.1.0",
+    "typescript": "^3.9.7"
+  },
+  "prepublish": "tsc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naimo84/node-duplicati/issues"
+  },
+  "homepage": "https://github.com/naimo84/node-duplicati#readme",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint --edit"
+    }
+  },
+  "funding": {
+    "type": "paypal",
+    "url": "https://paypal.me/NeumannBenjamin"
+  },
+  "commitlint": {
+    "format": {
+      "helpUrl": "test"
+    },
+    "rules": {
+      "body-leading-blank": [
+        1,
+        "always"
+      ],
+      "footer-leading-blank": [
+        1,
+        "always"
+      ],
+      "header-max-length": [
+        2,
+        "always",
+        72
+      ],
+      "scope-case": [
+        2,
+        "always",
+        "lower-case"
+      ],
+      "subject-case": [
+        2,
+        "never",
+        [
+          "sentence-case",
+          "start-case",
+          "pascal-case",
+          "upper-case"
+        ]
+      ],
+      "subject-empty": [
+        2,
+        "never"
+      ],
+      "subject-full-stop": [
+        2,
+        "never",
+        "."
+      ],
+      "type-case": [
+        2,
+        "always",
+        "lower-case"
+      ],
+      "type-empty": [
+        2,
+        "never"
+      ],
+      "type-enum": [
+        2,
+        "always",
+        [
+          "build",
+          "chore",
+          "ci",
+          "docs",
+          "feat",
+          "fix",
+          "perf",
+          "refactor",
+          "revert",
+          "style",
+          "test"
+        ]
+      ]
+    }
+  }
+}
