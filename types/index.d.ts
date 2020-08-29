@@ -8,5 +8,6 @@ export class Duplicati {
     public login(password);
     public setServerstate(state,duration,token: string, auth?);
     public runBackup(id,token)
+    public getBackups(token);
 }
 
