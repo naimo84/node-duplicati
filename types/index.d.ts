@@ -7,7 +7,7 @@ export class Duplicati {
     public getToken();
     public login(password);
     public setServerstate(state,duration,token: string, auth?);
-    public runBackup(id,token)
-    public getBackups(token);
+    public runBackup(id,token,auth?)
+    public getBackups(token,auth?);
 }
 

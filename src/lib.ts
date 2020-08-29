@@ -85,17 +85,29 @@ export class Duplicati {
 
     }
 
-    public async getBackups(token: String) {
-
-        let backups = await axios.get(this.config.url + '/api/v1/backups', {
+    public async getBackups(token: string, auth?) {
+        let url = this.config.url + '/api/v1/backups';
+        let options = {
             headers: {
                 'x-xsrf-token': token
             }
-        })
+        }
+        if (auth) {
+            const cookieJar = new tough.CookieJar();
+
+            cookieJar.setCookieSync(Cookie.parse(`xsrf-token=${encodeURIComponent(token)}`), url);
+            cookieJar.setCookieSync(Cookie.parse(`session-nonce=${encodeURIComponent(auth.nonce)}`), url);
+            cookieJar.setCookieSync(Cookie.parse(`session-auth=${encodeURIComponent(auth.auth)}`), url);
+            options = Object.assign(options, {
+                jar: cookieJar,
+                withCredentials: true
+            });
+        }
+        let backups = await axios.get(url, options);
         return JSON.parse(backups.data.trim());
     }
 
-    public async runBackup(backup: Number | any, token: string) {
+    public async runBackup(backup: Number | any, token: string, auth?) {
         let backupId: number;
         if (isNumber(backup)) {
             backupId = backup;
