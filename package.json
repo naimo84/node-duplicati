@@ -1,7 +1,7 @@
 {
   "name": "node-duplicati",
-  "version": "0.1.0",
-  "description": "calendar events for nodejs",
+  "version": "0.0.1",
+  "description": "duplicati client for nodejs",
   "main": "dist/lib.js",
   "scripts": {
     "test": "mocha \"test/**/*_spec.js\"",
