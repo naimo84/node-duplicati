@@ -1,12 +1,10 @@
-
 const axios = require('axios').default;
 import { Config } from 'config';
 import { isNumber } from 'util';
-const FormData = require('form-data')
-const qs = require('querystring')
-const CryptoJS = require('crypto-js');
+import qs = require('querystring');
+import CryptoJS = require('crypto-js');
 const axiosCookieJarSupport = require('axios-cookiejar-support').default;
-const tough = require('tough-cookie');
+import tough = require('tough-cookie');
 const Cookie = tough.Cookie;
 
 export class Duplicati {
@@ -108,18 +106,15 @@ export class Duplicati {
     }
 
     public async runBackup(backup: Number | any, token: string, auth?) {
+
         let backupId: number;
         if (isNumber(backup)) {
             backupId = backup;
         } else {
             backupId = backup.id;
         }
-        let backups = await axios.post(this.config.url + `/api/v1/backup/${backupId}/run`, {}, {
-            headers: {
-                'x-xsrf-token': token
-            }
-        })
-        return JSON.parse(backups.data.trim());
+        let url = this.config.url + `/api/v1/backup/${backupId}/run`;
+        return await this.post(url, token, auth);
     }
 
     public async setServerstate(state, duration: string, token: string, auth?) {
