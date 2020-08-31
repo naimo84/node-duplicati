@@ -128,7 +128,7 @@ export class Duplicati {
                 'x-xsrf-token': token
             }
         }
-        if (auth) {
+        if (auth && auth.auth) {
             const cookieJar = new tough.CookieJar();
 
             cookieJar.setCookieSync(Cookie.parse(`xsrf-token=${encodeURIComponent(token)}`), url);
